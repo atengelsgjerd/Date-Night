@@ -27,4 +27,4 @@ Future Developments:
 - Allergen input to allow users to filter out drinks with known Allergens
 - A check-box to denote whether beverages should be Alcoholic, or Non-Alcoholic
 - Refine cocktail search by spirits
--
+
