@@ -9,14 +9,42 @@ const options = {
   const url = 'https://api.themoviedb.org/3/authentication'
   const movieListUrl = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&with_genres=10749%2C%2035%20%7C%2018%20%7C%2010402&with_original_language=en&without_genres=28%2C%2012%2C%2016%2C%2080%2C%2099%2C%2010751%2C%2014%2C%2036%2C%2027%2C%209648%2C%20878%2C%2010770%2C%2053%2C%2010752%2C%2037'
   const titleEl = document.querySelector("h1");
-  const posterEl = document.querySelector("img");
+  // const posterEl = document.querySelector("img");
   const descriptionEl = document.querySelector("p");
   const moodSelectEl = document.querySelector("#mood-select");
 
-  function displayMovie(movieData){
-    titleEl.textContent = movieData.title;
-    posterEl.setAttribute("src", "https://media.themoviedb.org/t/p/w300_and_h450_bestv2" + movieData.poster_path);
-    descriptionEl.textContent = movieData.results[0].overview;
+  const movieSectionEl = document.querySelector("#movie-section");
+  const movieTitleEl = document.querySelector("#movie-title");
+  const movieDescriptionSectionEl = document.querySelector("#movie-description_section");
+
+  // const moviePosterSectionEl = document.querySelector("#movie-poster-section");
+ 
+   function displayMovie(movieData){
+    // titleEl.textContent = movieData.title;
+    //Display the title of the movie.
+    movieTitleEl.textContent = movieData.title;
+
+    //Create image element and append to the movie section.
+    const moviePosterEl = document.createElement("img");
+    moviePosterEl.setAttribute("src", "https://media.themoviedb.org/t/p/w300_and_h450_bestv2" + movieData.poster_path);
+    // We should also add alt element.
+
+    //Append the image to its container.
+    movieSectionEl.append(moviePosterEl);
+
+    // Create element for description
+    const movieDescriptionEl = document.createElement("p");
+    // Add the description of the movie.
+    movieDescriptionEl.textContent = movieData.overview;
+    
+
+    // Append
+    movieDescriptionSectionEl.append(movieDescriptionEl);
+
+
+    
+    // posterEl.setAttribute("src", "https://media.themoviedb.org/t/p/w300_and_h450_bestv2" + movieData.poster_path);
+    // descriptionEl.textContent = movieData.results[0].overview;
 
   }
 
