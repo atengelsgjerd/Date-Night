@@ -1,30 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Date Night</title>
-    <link rel="stylesheet" href="assets/CSS/reset.css">
-    <link rel="stylesheet" href="assets/CSS/style.css">
+    <title>Document</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-</head>
-<body>
-    <div>
-        <h1></h1>
-        <img>
-        <p></p>
-    </div>
-    <div>
-        <h2></h2>
-        <img id="cocktail">
-        <ul>
-            
-        </ul>
-        <p id="cocktailDescription"></p>
-    </div>
-    <script src="assets/JavaScript/script.js"></script>
-    <script src="assets/JavaScript/cocktail.js"></script>
+    <style>
+        .container {
+            background-color: rgb(223, 231, 228);
+            color: black;
+        }
 
+        h2 {
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container title-header-img flex justify-center">
+            <img src="assets/img/popCornAndSoda.png" class="bg-green-500 rounded-lg m-4 h-12" />
+            <h1 class="bg-green-500 rounded-lg m-4 h-12 flex justify-center flex-row text-black text-5xl font-bold">
+                Date Night</h1>
+        </div>
+        <div>
+            <div class="moodAndButton bg-green-500 rounded-lg m-4 h-12 flex justify-center flex-row text-black text-5xl
+                font-bold">
+                <select name="moods" id="mood-select"
+                    class="moodAndButton bg-green-500 rounded-lg m-4 h-12 flex justify-center flex-row text-black text-5xl font-bold">
+                    <option value="">--What is your mood?--</option>
+                    <option value="35">Humorous</option>
+                    <option value="10749">Romantic</option>
+                    <option value="12">Adventurous</option>
+                    <option value="27">Fearful</option>
+                    <option value="18">Dramatic</option>
+                    <option value="10751">Wholesome</option>
+                </select>
+            </div>
+        </div>
+        <div
+            class="container bg-green-500 rounded-lg m-4 h-12 flex justify-center flex-row text-black text-5xl font-bold">
+            <button type="button">Send
+                me to the movies
+            </button>
+        </div>
+        <div class="container">
+            <div class="grid grid-cols-4 grid-rows-2">
+                <section class="bg-green-500 rounded-lg m-4 h-12 flex justify-center flex-row"><h2 id="movieTitle"></h2></section>
+                <section class="bg-green-500 rounded-lg m-4 h-12 flex justify-center flex-row">Movie
+                    Description Title</section>
+                <section class="bg-green-500 rounded-lg m-4 h-12 flex justify-center flex-row"><h2 id="cocktailTitle"></h2></section>
+                <section class="bg-green-500 rounded-lg m-4 h-12 flex justify-center flex-row">Cocktail Recipe
+                    Title</section>
+                <section class="bg-green-500 rounded-lg m-4 h-12"><img id="moviePoster"></section>
+                <section class="bg-green-500 rounded-lg m-4 h-12"><p></p></section>
+                <section class="bg-green-500 rounded-lg m-4 h-12"><img id="cocktailPhoto"></section>
+                <section class="bg-green-500 rounded-lg m-4 h-12">Cocktail Recipe</section>
+            </div>
+            <div>
+                <section class="bg-green-500 rounded-lg m-4 h-12">Search History
+                </section>
+            </div>
+        </div>
+        <script src="assets/js/script.js"></script>
+        <script src="assets/js/cocktail.js"></script>
 </body>
+
+
 </html>
