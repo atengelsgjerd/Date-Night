@@ -1,6 +1,6 @@
 const cocktailUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
-const drinkNameEl = document.querySelector("h2");
-const drinkImageEl = document.querySelector("#cocktail");
+const drinkNameEl = document.querySelector("#cocktailTitle");
+const drinkImageEl = document.querySelector("#cocktailPhoto");
 const ingredientListEl = document.querySelector("ul");
 const drinkDescriptionEl = document.querySelector("#cocktailDescription")
 
