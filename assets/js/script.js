@@ -49,8 +49,8 @@ const options = {
   }
 
 function randomMovieSelection(movieArray){
-  //random selection from movie array
-  const movieInfo = movieArray[0];
+  const randomMovie = Math.floor(Math.random() * movieArray.length);
+  const movieInfo = movieArray[randomMovie];
   displayMovie(movieInfo)
 }
 
