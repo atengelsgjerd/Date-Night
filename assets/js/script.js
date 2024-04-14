@@ -60,6 +60,7 @@ const options = {
     // descriptionEl.textContent = movieData.overview;
 
 
+
   }
 
 function randomMovieSelection(movieArray){
