@@ -1,27 +1,38 @@
 
 #movie-section {
-    width: 25;
-    display: flex;
-    position: relative;
-    height: 70vh;
+    padding: 20px;
+    text-align: center;
+    /* width: 25%; */
+    /* display: flex; */
+    /* position: relative; */
+    /* height: 70vh; */
  } 
 
+ .movie-title{
+    margin-bottom: 10px;
+ }
 
-img {
-    height: 30vh;
+
+ .border-black{
+    border: 2px solid black;
+    margin-bottom: 10px;
+ }
+
+ .btn
+
+/* img { */
+    /* height: 30vh; */
+
+
+
+
+
+/* } */
+
+
+
+ /* p {
     display: block;
-    position: relative; 
-    bottom: 10px;
-    width: 30rem;
-    margin-top: 100px;
-
-
-
-}
-
-
-
- p {display: block;
  position: absolute;
  bottom: 0;
 
@@ -30,5 +41,5 @@ img {
 
 h3 {
     display: block;
-    position: relative;
-} 
+    position: relative; */
+/* }  */

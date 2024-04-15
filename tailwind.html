@@ -27,10 +27,9 @@
                 Date Night</h1>
         </div>
         <div>
-            <div class="moodAndButton bg-green-500 rounded-lg m-4 h-12 flex justify-center flex-row text-black text-5xl
-                font-bold">
+            <div class="moodAndButton bg-green-500 rounded-lg text-center">
                 <select name="moods" id="mood-select"
-                    class="moodAndButton bg-green-500 rounded-lg m-4 h-12 flex justify-center flex-row text-black text-5xl font-bold">
+                    class="moodAndButton bg-green-500 rounded-lg m-4 text-center text-black text-5xl font-bold">
                     <option value="">--What is your mood?--</option>
                     <option value="35">Dog</option>
                     <option value="cat">Cat</option>
@@ -42,14 +41,16 @@
             </div>
         </div>
         <div
-            class="container bg-green-500 rounded-lg m-4 h-12 flex justify-center flex-row text-black text-5xl font-bold">
+            class="container bg-green-500 rounded-lg flex justify-center flex-row text-black text-5xl font-bold">
             <button type="button">Send me to the movies</button>
         </div>
         <div class="container">
-            <div class="grid grid-cols-6 grid-rows-5">
-                <section id="movie-section" class="bg-green-500 rounded-lg m-4 h-full w-96 flex justify-center flex-row">
-                    <h3 id="movie-title">Movie</h3>
+            <div class="grid grid-cols-4 grid-rows-5">
+                <section id="movie-section" class="bg-green-500 rounded-lg ">
+                    <h3 id="movie-title" class="movie-title">Movie</h3>
 
+                    <div id="movie-container"></div>
+                    
                 </section>
 
 
