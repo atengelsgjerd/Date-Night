@@ -26,6 +26,11 @@ const moodId = JSON.parse(localStorage.getItem('mood')) || 35
 // const movieDescriptionSectionEl = document.querySelector("#movie-description_section");
 
 
+const cocktailUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
+const drinkNameEl = document.querySelector("#cocktailTitle");
+const drinkImageEl = document.querySelector("#cocktailPhoto");
+const ingredientListEl = document.querySelector("ul");
+const drinkDescriptionEl = document.querySelector("#cocktailDescription")
 
 
 
@@ -101,6 +106,32 @@ movieContainer.innerHTML = ''
   // descriptionEl.textContent = movieData.overview;
 }
 
+function displayCocktail(data){
+  drinkNameEl.textContent = data.drinks[0].strDrink;
+  drinkImageEl.setAttribute("src", data.drinks[0].strDrinkThumb);
+  drinkDescriptionEl.textContent = data.drinks[0].strInstructions;
+  const IngredientArray = [];
+  const measureArray = [];
+  for (i = 1; i < 15; i++){
+      let tempDrink = data.drinks[0]["strIngredient" + i];
+      if (tempDrink){
+        IngredientArray.push(tempDrink);
+      }
+      let measurement = data.drinks[0]["strMeasure" + i];
+      if (measurement){
+          measureArray.push(measurement);
+      }
+  }
+
+  console.log(IngredientArray, measureArray);
+for (i = 0; i < IngredientArray.length; i++){
+    console.log(measureArray[i], IngredientArray[i]);
+    let totalMeasurement = measureArray[i] + " " + IngredientArray[i];
+    console.log(totalMeasurement);
+}
+}
+
+
 let genreListData = [];
 let genreListDatapg2 = [];
 
@@ -154,6 +185,16 @@ function getMovieAPI(genreId) {
         randomMovieSelection(moviesArray);
       });
 }
+
+
+fetch(cocktailUrl)
+.then(function(response){
+    return response.json();
+})
+.then(function(data){
+    console.log(data);
+    displayCocktail(data);
+})
 
 // fetch(url, options)
 //   .then(function (results) {
