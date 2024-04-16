@@ -20,6 +20,7 @@ const buttonEl = document.querySelector("#sendBtn");
 const movieSectionEl = document.querySelector("#movie-section");
 const movieTitleEl = document.querySelector("#movie-title");
 const movieContainer =  document.querySelector("#movie-container");
+const movieOverview = document.querySelector("#movie-overview");
 const nextButton = document.querySelector("#nextBtn");
 const moodId = JSON.parse(localStorage.getItem('mood')) || 35
 // const movieDescriptionSectionEl = document.querySelector("#movie-description_section");
@@ -39,7 +40,9 @@ movieContainer.innerHTML = ''
   //Create image element and append to the movie section.
 
   const posterContainer = document.createElement("div");
-  const movieTitle = document.createElement('h3')
+  //const movieTitle = document.createElement('h3')
+  const movieTitle = document.querySelector("#movieTitle");
+  const movieOverviewContentEl = document.createElement("h4");
   const movieDescriptionContentEl = document.createElement("p");
   const overviewSpan = document.createElement("strong");
   const posterTitleEl = document.createAttribute("h4");
@@ -48,7 +51,9 @@ movieContainer.innerHTML = ''
   // moviePosterEl.classList.add(`w-20`, `h-21`);
   // We should also add alt element.
 
-  movieTitle.textContent =  movieData.title
+  //movieTitle.textContent =  movieData.title
+  movieTitle.textContent = movieData.title;
+  
 
   moviePosterEl.setAttribute(
     "src",
@@ -65,8 +70,10 @@ movieContainer.innerHTML = ''
 
   // Add the description of the movie.
 
-  overviewSpan.textContent = "Overview: ";
+  movieOverviewContentEl.textContent = "Overview: ";
+  //movieDescriptionContentEl.textContent = movieData.overview;
   movieDescriptionContentEl.textContent = movieData.overview;
+  console.log("movie Description:", movieData.overview);
   nextMovieBtn.setAttribute('class', 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded')
   nextMovieBtn.setAttribute('value', genreId)
   // movieDescriptionContentEl.append(document.createElement(`<span>Description<span>`));
@@ -81,12 +88,13 @@ movieContainer.innerHTML = ''
   // movieSectionEl.appendChild(posterContainer);
   // descriptionContainer.append(movieDescriptionEl);
   movieContainer.append(
-    movieTitle, 
+    //movieTitle, 
     posterContainer, 
     overviewSpan, 
-    movieDescriptionContentEl,
+    //movieDescriptionContentEl,
      nextMovieBtn
     );
+    movieOverview.append(movieOverviewContentEl, movieDescriptionContentEl);
 
   // titleEl.textContent = movieData.title;
   // posterEl.setAttribute("src", "https://media.themoviedb.org/t/p/w300_and_h450_bestv2" + movieData.poster_path);
