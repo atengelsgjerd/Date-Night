@@ -15,13 +15,19 @@ const movieListUrl =
 const posterEl = document.querySelector("#moviePoster");
 const descriptionEl = document.querySelector("p");
 const moodSelectEl = document.querySelector("#mood-select");
-const buttonEl = document.querySelector("button");
+const buttonEl = document.querySelector("#sendBtn");
 
 const movieSectionEl = document.querySelector("#movie-section");
 const movieTitleEl = document.querySelector("#movie-title");
 const movieContainer =  document.querySelector("#movie-container");
+const nextButton = document.querySelector("#nextBtn");
 const moodId = JSON.parse(localStorage.getItem('mood')) || 35
 // const movieDescriptionSectionEl = document.querySelector("#movie-description_section");
+
+
+
+
+
 
 function displayMovie(movieData, genreId) {
   // titleEl.textContent = movieData.title;
@@ -66,10 +72,10 @@ movieContainer.innerHTML = ''
   // movieDescriptionContentEl.append(document.createElement(`<span>Description<span>`));
 
   // Append
-  nextMovieBtn.addEventListener('click', function(){
+  nextButton.addEventListener('click', function(){
  
     getMovieAPI(moodId);
-  })
+  });
 
   posterContainer.appendChild(moviePosterEl, moviePosterEl);
   // movieSectionEl.appendChild(posterContainer);
@@ -87,58 +93,58 @@ movieContainer.innerHTML = ''
   // descriptionEl.textContent = movieData.overview;
 }
 
+let genreListData = [];
+let genreListDatapg2 = [];
+
 function randomMovieSelection(movieArray) {
-  movieArray = movieArray.filter(function (movie) {
-          return movie.genre_ids.includes(moodId);
-        });
   const randomMovie = Math.floor(Math.random() * movieArray.length);
   const movieInfo = movieArray[randomMovie];
   displayMovie(movieInfo);
   console.log(movieInfo);
 }
 
-
-
 function getMovieAPI(genreId) {
-  console.log("gi", genreId);
-  
+  let moviesArray = [];
+  let genreListUrl = "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&genre_ids=35";
 
-  let moviesArray = []
-
-  let genreListUrl =
-  "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&genre_ids=35";
+  let filteredMovies;
+  let filteredMoviesPg2;
 
   fetch(genreListUrl, options)
     .then(function (results) {
       return results.json();
     })
-    .then(function (genreListData) {
-      console.log("1", genreListData);
-      moviesArray = moviesArray.concat(genreListData.results) ;
-      // genreListData = genreListData.filter(function (movie) {
-      //   return movie.genre_ids.includes(genreId);
-      // });
-      // console.log("2", genreListData);
-    });
+    .then(function (data) {
+      let genreListData = data.results;
+      moviesArray = moviesArray.concat(genreListData);
+      filteredMovies = genreListData.filter(function (movie) {
+        return movie.genre_ids.includes(genreId);
+      });
 
-    const genreListUrl1 =
-      "https://api.themoviedb.org/3/movie/popular?language=en-US&page=2&genre_ids=35";
-      fetch(genreListUrl1, options)
+      console.log("1", genreListData);
+      return filteredMovies;
+    })
+    .then(function(){
+      genreListUrl ="https://api.themoviedb.org/3/movie/popular?language=en-US&page=2&genre_ids=35";
+      return fetch(genreListUrl, options);
+    })
       .then(function (results) {
         return results.json();
       })
-      .then(function (genreListDatapg2) {
-        moviesArray = moviesArray.concat(genreListDatapg2.results)
-        // genreListDatapg2 = genreListDatapg2.results;
-        // genreListDatapg2 = genreListDatapg2.filter(function (movie) {
-        //   return movie.genre_ids.includes(genreId);
-        // });
-        // console.log("3", genreListDatapg2);
-        // const allMovies = genreListData.concat(genreListDatapg2);
-        // console.log("4", allMovies);
+      .then(function (data) {
+       let genreListDatapg2 = data.results;
+        moviesArray = moviesArray.concat(genreListDatapg2);
+
+        filteredMoviesPg2 = genreListDatapg2.filter(function(movie){
+          return movie.genre_ids.includes(genreId);
+        });
+      
+        console.log("3", filteredMoviesPg2);
+
+         const allMovies = filteredMovies.concat(filteredMoviesPg2);
+         console.log("4", allMovies);
         randomMovieSelection(moviesArray);
       });
-      // randomMovieSelection(allMovies, genreId);
 }
 
 // fetch(url, options)
@@ -162,6 +168,8 @@ function getMovieAPI(genreId) {
 moodSelectEl.addEventListener("change", function () {
   const moodChoice = parseInt(moodSelectEl.value);
   console.log("mc", moodChoice);
+  buttonEl.addEventListener("click", function(){
   localStorage.setItem('mood', JSON.stringify(moodChoice))
   getMovieAPI(moodChoice);
+  });
 });

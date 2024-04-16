@@ -6,68 +6,190 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <style>
         .container {
             background-color: rgb(223, 231, 228);
             color: black;
         }
 
-        h2 {
-            text-align: center;
+        .container-height {
+            height: 525px;
+        }
+
+        .poster {
+            min-height: 400px;
         }
     </style>
+    <!-- background color palette
+    ========================
+    Crimson = D7263D
+    OxfordBlue = 02182B
+    DodgerBlue = 0197F6
+    MunsellBlue = 448FA3
+    SkyBlue = 68C5DB -->
+
 
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="container title-header-img flex justify-center">
-            <img src="assets/img/popCornAndSoda.png" class="bg-green-500 rounded-lg m-4 h-12" />
-            <h1 class="bg-green-500 rounded-lg m-4 h-12 flex justify-center flex-row text-black text-5xl font-bold">
+    <div class="wrapper bg-black">
+        <div class="bg-black title-header-img flex justify-center grid grid-cols-3 grid-rows-1">
+            <img src="./assets/img/sodaAndPopcorn.png" class="m-4 h-12 row-start
+-1" />
+            <h1 class="m-2 h-12 flex justify-center flex-row bg-black text-pink-500 p-2 text-5xl font-bold">
                 Date Night</h1>
         </div>
-        <div>
-            <div class="moodAndButton bg-green-500 rounded-lg m-4 h-12 flex justify-center flex-row text-black text-5xl
-                font-bold">
-                <select name="moods" id="mood-select"
-                    class="moodAndButton bg-green-500 rounded-lg m-4 h-12 flex justify-center flex-row text-black text-5xl font-bold">
-                    <option value="">--What is your mood?--</option>
-                    <option value="35">Humorous</option>
-                    <option value="10749">Romantic</option>
-                    <option value="12">Adventurous</option>
-                    <option value="27">Fearful</option>
-                    <option value="18">Dramatic</option>
-                    <option value="10751">Wholesome</option>
-                </select>
-            </div>
-        </div>
-        <div
-            class="container bg-green-500 rounded-lg m-4 h-12 flex justify-center flex-row text-black text-5xl font-bold">
-            <button type="button">Send
-                me to the movies
-            </button>
-        </div>
-        <div class="container">
-            <div class="grid grid-cols-4 grid-rows-2">
-                <section class="bg-green-500 rounded-lg m-4 h-12 flex justify-center flex-row"><h2 id="movieTitle"></h2></section>
-                <section class="bg-green-500 rounded-lg m-4 h-12 flex justify-center flex-row">Movie
-                    Description Title</section>
-                <section class="bg-green-500 rounded-lg m-4 h-12 flex justify-center flex-row"><h2 id="cocktailTitle"></h2></section>
-                <section class="bg-green-500 rounded-lg m-4 h-12 flex justify-center flex-row">Cocktail Recipe
-                    Title</section>
-                <section class="bg-green-500 rounded-lg m-4 h-12"><img id="moviePoster"></section>
-                <section class="bg-green-500 rounded-lg m-4 h-12"><p></p></section>
-                <section class="bg-green-500 rounded-lg m-4 h-12"><img id="cocktailPhoto"></section>
-                <section class="bg-green-500 rounded-lg m-4 h-12">Cocktail Recipe</section>
-            </div>
-            <div>
-                <section class="bg-green-500 rounded-lg m-4 h-12">Search History
-                </section>
-            </div>
-        </div>
-        <script src="assets/js/script.js"></script>
-        <script src="assets/js/cocktail.js"></script>
-</body>
+        <div class="grid grid-cols-1 grid-rows-1 justify-items-center">
+            <div class="p-0 m-6 h-12 flex justify-center flex-row text-white text-5xl font-bold">
+                <!-- <select name="moods" id="mood-select"
+                    class="rounded-lg m-4 h-12 flex justify-center flex-row bg-black text-white p-2 text-2xl font-bold border-2 border-pink-500">
+                    <option value="">What is your mood?</option>
+                    <option value="dog">Zebra</option>
+                    class="moodAndButton bg-green-500 rounded-lg m-4 h-12 flex justify-center flex-row text-black
+                    text-5xl font-bold">
+                    <option value="">Lion</option>
+                    <option value="35">Dog</option>
+                    <option value="cat">Cat</option>
+                    <option value="hamster">Hamster</option>
+                    <option value="parrot">Parrot</option>
+                    <option value="spider">Spider</option>
+                    <option value="goldfish">Goldfish</option>
+                </select> -->
 
+                <!-- Dropdown menu -->
+                <form class="max-w-sm mx-auto">
+                    <select id="mood-select" class="mb-4 border-2 border-pink-500 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <option selected>What Is Your Mood?</option>
+                      <option value="35">Humorous</option>
+                      <option value="28">Adventurous</option>
+                      <option value="10749">Romantic</option>
+                      <option value="27">Fearful</option>
+                      <option value="10751">Wholesome</option>
+                      <option value="18">Dramatic</option>
+                    </select>
+                  </form>
+
+            </div>
+            <div class="grid grid-cols-1 grid-rows-1 justify-items-center">
+                <!-- <button type="button"
+                    class="bg-black rounded-lg text-2xl p-3 text-white font-bold border-2 border-pink-500 place-content-center">Send
+                    me to the movies
+                </button> -->
+                <!-- Using utilities: -->
+                <button
+                    id="sendBtn"
+                    class="mb-4 border-2 border-pink-500 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Send Me To The Movies 😍
+                </button>
+
+                <!-- Extracting component classes: -->
+                <!-- <button class="btn btn-blue">
+                    Send me to the movies
+                </button> -->
+
+                <style>
+                    .btn {
+                        @apply font-bold py-2 px-4 rounded;
+                    }
+
+                    .btn-blue {
+                        @apply bg-blue-500 text-white;
+                    }
+
+                    .btn-blue:hover {
+                        @apply bg-blue-700;
+                    }
+                </style>
+            </div>
+        </div>
+
+        <div class="container-height">
+            <div class="grid grid-cols-4 grid-rows-1 bg-pink-500">
+                <section
+                    class="rounded-lg m-2 h-12 flex justify-center flex-row bg-black text-white p-2 text-2xl font-bold">
+                    Movie
+                    Title
+                </section>
+                <section
+                    class="rounded-lg m-2 h-12 flex justify-center flex-row bg-black text-white p-2 text-2xl font-bold">
+                    Movie
+                    Description Title</section>
+                <section
+                    class="rounded-lg m-2 h-12 flex justify-center flex-row bg-black text-white p-2 text-2xl font-bold">
+                    Cocktail Photo
+                    Title</section>
+                <section
+                    class="rounded-lg m-2 h-12 flex justify-center flex-row bg-black text-white p-2 text-2xl font-bold">
+                    Cocktail Recipe
+                    Title</section>
+            </div>
+
+            <div class="grid grid-cols-4 grid-rows-1 bg-pink-500 mb-2">
+                <section class="rounded-lg mx-2 h-12 poster bg-black text-white p-2" id="movie-container">Poster</section>
+                <section class="rounded-lg mx-2 h-12 poster bg-black text-white p-2">Movie Description</section>
+                <section class="rounded-lg mx-2 h-12 poster bg-black text-white p-2">Cocktail Photo</section>
+                <section class="rounded-lg mx-2 h-12 poster bg-black text-white p-2">Cocktail Recipe</section>
+            </div>
+        </div>
+        <div class="bg-black h-12 flex justify-start flex-row text-5xl font-bold justify-items-center mt-4">
+
+            <!-- <button type="button" class="bg-black m-2 rounded-lg text-2xl font-bold text-pink-500">My Search
+                History
+            </button> -->
+            <!-- <button type="button"
+                    class="bg-black rounded-lg text-2xl p-3 text-white font-bold border-2 border-pink-500 place-content-center">Send
+                    me to the movies
+                </button> -->
+            <!-- Using utilities: -->
+            <button
+                class="mb-4 mr-4 border-2 border-pink-500 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex justify-items-start items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                My Search History
+            </button>
+
+            <!-- Extracting component classes: -->
+            <!-- <button class="btn btn-blue">
+                ""
+            </button> -->
+            <div class="inline-flex">
+                <button
+                    class="mr-0.5 mb-4 border-2 border-pink-500 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex justify-items-start items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 py-2 px-4 rounded-l">
+                    Prev
+                </button>
+                <button
+                    id="nextBtn"
+                    class="ml-0 mb-4 mb-4 border-2 border-pink-500 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex justify-items-start items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 py-2 px-4 rounded-r">
+                    Next
+                </button>
+            </div>
+
+
+            <style>
+                .btn {
+                    @apply font-bold py-2 px-4 rounded;
+                }
+
+                .btn-blue {
+                    @apply bg-blue-500 text-white;
+                }
+
+                .btn-blue:hover {
+                    @apply bg-blue-700;
+                }
+            </style>
+        </div>
+        <footer
+            class="-mb-100 mt-10 grid-cols-1 grid-rows-1 bg-black m-2 h-12 flex justify-center flex-row bg-black text-pink-500 p-2 text-1xl font-bold">
+            <img class="mr-2" src="./assets/img/copyrightImage.png" /> Soda Pop Entertainment
+        </footer>
+        <div class="bg-black h-sreen">
+            ""
+        </div>
+        <!-- bg-green-500 rounded-lg m-3 h-12 flex justify-center flex-row text-black text-2xl font-bold" -->
+        <!-- bg-black rounded-lg text-2xl p-3 text-white font-bold border-2 border-pink-500 -->
+        <!-- moodAndButton bg-black border-2 border-pink-500 rounded-lg m-4 h-12 flex p-2 justify-center flex-row text-white text-3xl font-bold -->
+        <script src="assets/js/script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+</body>
 
 </html>
