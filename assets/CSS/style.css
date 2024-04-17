@@ -1,27 +1,42 @@
-
 #movie-section {
-    padding: 20px;
-    text-align: center;
-    /* width: 25%; */
-    /* display: flex; */
-    /* position: relative; */
-    /* height: 70vh; */
- } 
+   padding: 20px;
+   text-align: center;
+   /* width: 25%; */
+   /* display: flex; */
+   /* position: relative; */
+   /* height: 70vh; */
+}
 
- .movie-title{
-    margin-bottom: 10px;
- }
+html {
+   background-color: black;
+}
+
+.container {
+   background-color: rgb(223, 231, 228);
+   color: black;
+}
+
+.container-height {
+   height: 525px;
+}
+
+.poster {
+   min-height: 400px;
+}
+
+.movie-title {
+   margin-bottom: 10px;
+}
 
 
- .border-black{
-    border: 2px solid black;
-    margin-bottom: 10px;
- }
+.border-black {
+   border: 2px solid black;
+   margin-bottom: 10px;
+}
 
- .btn
-
+.btn
 /* img { */
-    /* height: 30vh; */
+/* height: 30vh; */
 
 
 
@@ -31,7 +46,7 @@
 
 
 
- /* p {
+/* p {
     display: block;
  position: absolute;
  bottom: 0;
