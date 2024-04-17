@@ -7,6 +7,7 @@
     <title>Document</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/CSS/style.css">
     <style>
         .container {
             background-color: rgb(223, 231, 228);
@@ -135,7 +136,7 @@
                 </section>
             </div>
         </div>
-        <div class="bg-black h-12 flex justify-start flex-row text-5xl font-bold justify-items-center mt-4">
+        <div class="bg-black h-12 flex justify-start flex-row text-5xl font-bold justify-items-center mt-4 ">
 
             <!-- <button type="button" class="bg-black m-2 rounded-lg text-2xl font-bold text-pink-500">My Search
                 History
@@ -154,16 +155,21 @@
             <!-- <button class="btn btn-blue">
                 ""
             </button> -->
-            <div class="inline-flex">
-                <button
+            <div class="inline-flex hide" id="nextPanel">
+                <!-- <button
                     class="mr-0.5 mb-4 border-2 border-pink-500 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex justify-items-start items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 py-2 px-4 rounded-l">
                     Prev
-                </button>
+                </button> -->
                 <button
                     id="nextBtn"
                     class="ml-0 mb-4 mb-4 border-2 border-pink-500 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex justify-items-start items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 py-2 px-4 rounded-r">
-                    Next
+                    Next Movie
                 </button>
+                <button
+                id="nextBtnDrink"
+                class="ml-0 mb-4 mb-4 border-2 border-pink-500 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex justify-items-start items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 py-2 px-4 rounded-r">
+                Next Drink
+            </button>
             </div>
 
 

@@ -18,7 +18,9 @@
     margin-bottom: 10px;
  }
 
- .btn
+.hide{
+   display: none
+}
 
 /* img { */
     /* height: 30vh; */
