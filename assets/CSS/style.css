@@ -1,4 +1,5 @@
 #movie-section {
+
    padding: 20px;
    text-align: center;
    /* width: 25%; */
@@ -35,6 +36,29 @@ html {
 }
 
 .btn
+
+    padding: 20px;
+    text-align: center;
+    /* width: 25%; */
+    /* display: flex; */
+    /* position: relative; */
+    /* height: 70vh; */
+ } 
+
+ .movie-title{
+    margin-bottom: 10px;
+ }
+
+
+ .border-black{
+    border: 2px solid black;
+    margin-bottom: 10px;
+ }
+
+.hide{
+   display: none
+}
+
 /* img { */
 /* height: 30vh; */
 
