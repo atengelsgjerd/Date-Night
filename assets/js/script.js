@@ -46,6 +46,7 @@ function displayMovie(movieData, genreId) {
   const posterTitleEl = document.createAttribute("h4");
   const moviePosterEl = document.createElement("img");
   const nextMovieBtn = document.createElement("button");
+  const drinkInstructionEl = document.createElement("h4");
   // moviePosterEl.classList.add(`w-20`, `h-21`);
   // We should also add alt element.
 
@@ -57,6 +58,8 @@ function displayMovie(movieData, genreId) {
     "https://media.themoviedb.org/t/p/w300_and_h450_bestv2" +
       movieData.poster_path
   );
+  moviePosterEl.setAttribute("style", "height:380px; margin:0 auto;");
+  drinkImageEl.setAttribute("style", "height:380px; margin:0 auto;");
   posterContainer.classList.add(`border-black`);
   posterTitleEl.textContent = "Movie Posture";
   nextMovieBtn.textContent = "next movie";
@@ -101,7 +104,7 @@ function displayMovie(movieData, genreId) {
 function displayCocktail(data) {
   drinkNameEl.textContent = data.drinks[0].strDrink;
   drinkImageEl.setAttribute("src", data.drinks[0].strDrinkThumb);
-  drinkDescriptionEl.textContent = data.drinks[0].strInstructions;
+  drinkDescriptionEl.textContent = "Instructions: " + data.drinks[0].strInstructions;
   const IngredientArray = [];
   const measureArray = [];
   for (i = 1; i < 15; i++) {
@@ -193,7 +196,6 @@ function randomCocktail() {
 
 nextButton.addEventListener("click", function () {
   const moodChoice = parseInt(moodSelectEl.value);
- console.log("This is the moodId that return when I click on the buttoon next" , moodId);
   // getMovieAPI(moodId);
   console.log("This is the moodId when I click on what is the mood button", moodChoice);
   // buttonEl.addEventListener("click", function () {
