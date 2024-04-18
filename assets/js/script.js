@@ -12,7 +12,7 @@ const movieListUrl =
   "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&with_genres=10749%2C%2035%20%7C%2018%20%7C%2010402&with_original_language=en&without_genres=28%2C%2012%2C%2016%2C%2080%2C%2099%2C%2010751%2C%2014%2C%2036%2C%2027%2C%209648%2C%20878%2C%2010770%2C%2053%2C%2010752%2C%2037";
 // const titleEl = document.querySelector("#movieTitle");
 
-const posterEl = document.querySelector("#moviePoster");
+// const posterEl = document.querySelector("#moviePoster");
 const descriptionEl = document.querySelector("p");
 const moodSelectEl = document.querySelector("#mood-select");
 const buttonEl = document.querySelector("#sendBtn");
@@ -32,13 +32,10 @@ const ingredientListEl = document.querySelector("ul");
 const drinkDescriptionEl = document.querySelector("#cocktailDescription");
 
 function displayMovie(movieData, genreId) {
-  // titleEl.textContent = movieData.title;
-  //Display the title of the movie.
-  // movieTitleEl.textContent = movieData.title;
+
   movieContainer.innerHTML = "";
   movieOverview.innerHTML = ''
 
-  //Create image element and append to the movie section.
 
   const posterContainer = document.createElement("div");
   //const movieTitle = document.createElement('h3')
@@ -73,7 +70,7 @@ function displayMovie(movieData, genreId) {
   movieOverviewContentEl.textContent = "Overview: ";
   //movieDescriptionContentEl.textContent = movieData.overview;
   movieDescriptionContentEl.textContent = movieData.overview;
-  console.log("movie Description:", movieData.overview);
+  // console.log("movie Description:", movieData.overview);
   nextMovieBtn.setAttribute(
     "class",
     "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
@@ -82,11 +79,7 @@ function displayMovie(movieData, genreId) {
   // movieDescriptionContentEl.append(document.createElement(`<span>Description<span>`));
 
   // Append
-  nextButton.addEventListener("click", function () {
-   
-    getMovieAPI(moodId);
-  });
-
+  
   posterContainer.appendChild(moviePosterEl, moviePosterEl);
   // movieSectionEl.appendChild(posterContainer);
   // descriptionContainer.append(movieDescriptionEl);
@@ -97,9 +90,9 @@ function displayMovie(movieData, genreId) {
     // movieDescriptionContentEl,
     //  nextMovieBtn
   );
-
+  
   movieOverview.append(movieOverviewContentEl, movieDescriptionContentEl);
-
+  
   // titleEl.textContent = movieData.title;
   // posterEl.setAttribute("src", "https://media.themoviedb.org/t/p/w300_and_h450_bestv2" + movieData.poster_path);
   // descriptionEl.textContent = movieData.overview;
@@ -121,12 +114,12 @@ function displayCocktail(data) {
       measureArray.push(measurement);
     }
   }
-
-  console.log(IngredientArray, measureArray);
+  
+  // console.log(IngredientArray, measureArray);
   for (i = 0; i < IngredientArray.length; i++) {
-    console.log(measureArray[i], IngredientArray[i]);
+    // console.log(measureArray[i], IngredientArray[i]);
     let totalMeasurement = measureArray[i] + " " + IngredientArray[i];
-    console.log(totalMeasurement);
+    // console.log(totalMeasurement);
   }
 }
 
@@ -137,87 +130,82 @@ function randomMovieSelection(movieArray) {
   const randomMovie = Math.floor(Math.random() * movieArray.length);
   const movieInfo = movieArray[randomMovie];
   displayMovie(movieInfo);
-  console.log(movieInfo);
+  // console.log(movieInfo);
 }
 
 function getMovieAPI(genreId) {
   let moviesArray = [];
   let genreListUrl =
-    `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&genre_ids=${genreId}`;
-
+  `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&genre_ids=${genreId}`;
+  
   let filteredMovies;
   let filteredMoviesPg2;
-
+  
   fetch(genreListUrl, options)
-    .then(function (results) {
-      return results.json();
-    })
-    .then(function (data) {
-      let genreListData = data.results;
-      moviesArray = moviesArray.concat(genreListData);
-      filteredMovies = genreListData.filter(function (movie) {
-        return movie.genre_ids.includes(genreId);
-      });
-
-      console.log("1", genreListData);
-      return filteredMovies;
-    })
-    .then(function () {
-      genreListUrl =
-        "https://api.themoviedb.org/3/movie/popular?language=en-US&page=2&genre_ids=35";
-      return fetch(genreListUrl, options);
-    })
-    .then(function (results) {
-      return results.json();
-    })
-    .then(function (data) {
-      let genreListDatapg2 = data.results;
-      moviesArray = moviesArray.concat(genreListDatapg2);
-
-      filteredMoviesPg2 = genreListDatapg2.filter(function (movie) {
-        return movie.genre_ids.includes(genreId);
-      });
-
-      console.log("3", filteredMoviesPg2);
-
-      const allMovies = filteredMovies.concat(filteredMoviesPg2);
-      console.log("4", allMovies);
-      randomMovieSelection(moviesArray);
+  .then(function (results) {
+    return results.json();
+  })
+  .then(function (data) {
+    let genreListData = data.results;
+    moviesArray = moviesArray.concat(genreListData);
+    filteredMovies = genreListData.filter(function (movie) {
+      return movie.genre_ids.includes(genreId);
     });
+    
+    // console.log("1", genreListData);
+    return filteredMovies;
+  })
+  .then(function () {
+    genreListUrl =
+    `https://api.themoviedb.org/3/movie/popular?language=en-US&page=2&genre_ids=${genreId}`;
+    return fetch(genreListUrl, options);
+  })
+  .then(function (results) {
+    return results.json();
+  })
+  .then(function (data) {
+    let genreListDatapg2 = data.results;
+    moviesArray = moviesArray.concat(genreListDatapg2);
+    
+    filteredMoviesPg2 = genreListDatapg2.filter(function (movie) {
+      return movie.genre_ids.includes(genreId);
+    });
+    
+    // console.log("3", filteredMoviesPg2);
+    
+    const allMovies = filteredMovies.concat(filteredMoviesPg2);
+    // console.log("4", allMovies);
+    randomMovieSelection(moviesArray);
+  });
 }
 
 function randomCocktail() {
   fetch(cocktailUrl)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
-      displayCocktail(data);
-    });
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+    displayCocktail(data);
+  });
 }
 
-// fetch(url, options)
-//   .then(function (results) {
-//     console.log(results);
-//     return results.json();
-//   })
-//   .then(function (data) {
-//     console.log(data);
-//   });
 
-// fetch(movieListUrl, options)
-// .then(function(response){
-//   console.log(response);
-//   return response.json();
-// })
-// .then(function(movieData){
-//   console.log(movieData);
-//   displayMovie(movieData);
-// })
-moodSelectEl.addEventListener("change", function () {
+nextButton.addEventListener("click", function () {
   const moodChoice = parseInt(moodSelectEl.value);
-  console.log("mc", moodChoice);
+ console.log("This is the moodId that return when I click on the buttoon next" , moodId);
+  // getMovieAPI(moodId);
+  console.log("This is the moodId when I click on what is the mood button", moodChoice);
+  // buttonEl.addEventListener("click", function () {
+    getMovieAPI(moodChoice);
+});
+
+
+
+moodSelectEl.addEventListener("change", function () {
+  // preventdefault();
+  const moodChoice = parseInt(moodSelectEl.value);
+  console.log("This is the moodId when I click on what is the mood button", moodChoice);
   buttonEl.addEventListener("click", function () {
     getMovieAPI(moodChoice);
     localStorage.setItem("mood", JSON.stringify(moodChoice));
@@ -230,4 +218,3 @@ document.getElementById('nextBtnDrink').addEventListener('click', function (){
   randomCocktail()
 })
 
-// window.location.reload();
