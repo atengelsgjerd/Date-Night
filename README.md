@@ -19,6 +19,8 @@ As a team we4 used Tailwinds CSS Framework for the styling of the page.
 We used Jquery coding.
 
 # Links:
+Deployed Application
+https://atengelsgjerd.github.io/Date-Night/
 Here are the URLs of the API we used.
 The Movie Database 'https://www.themoviedb.org/about'
 The Cocktail Database 'https://www.thecocktaildb.com/api.php'
@@ -36,3 +38,4 @@ Justin Holderman
 Matthew Prois
 
 
+![image](https://github.com/atengelsgjerd/Date-Night/assets/160930788/508ddd29-b6df-41c4-b3dc-87282c19c327)
