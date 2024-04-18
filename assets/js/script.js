@@ -175,7 +175,7 @@ function getMovieAPI(genreId) {
     
     const allMovies = filteredMovies.concat(filteredMoviesPg2);
     // console.log("4", allMovies);
-    randomMovieSelection(moviesArray);
+    randomMovieSelection(allMovies);
   });
 }
 
